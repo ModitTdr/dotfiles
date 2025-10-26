@@ -3,6 +3,7 @@
 
 set +e
 
+
 # obs
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots >/dev/null 2>&1
 
@@ -47,3 +48,5 @@ sway-audio-idle-inhibit >/dev/null 2>&1 &
 
 # change light value and volume value by swayosd-client in keybind
 swayosd-server >/dev/null 2>&1 &
+
+
