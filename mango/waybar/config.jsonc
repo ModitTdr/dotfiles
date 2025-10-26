@@ -8,19 +8,22 @@
     "reload_style_on_change": true,
     "height": 45,
     "modules-left": [
-        "ext/workspaces",
+        "network",
+        "clock"
         // "dwl/tags",
-        "wlr/taskbar",
-        "dwl/window"
+        // "wlr/taskbar",
+        // "dwl/window"
+    ],
+    "modules-center":[
+        "ext/workspaces"
     ],
     "modules-right": [
-        "tray",
-        "network",
+        // "tray",
         "pulseaudio",
         "cpu",
-        "temperature",
-        "backlight",
-        "clock",
+        "custom/ram",
+        // "temperature",
+        // "backlight",
         "custom/notification",
         "custom/power"
     ],
@@ -82,7 +85,7 @@
     },
     "cpu": {
       "interval": 2,
-      "format": " {load}%"
+      "format": "  {load}%"
     },
     "temperature": {
       "thermal-zone": 2,
@@ -126,7 +129,7 @@
     },
     "network": {
       "interval": 2,
-      "format-wifi": "{essid} ({signalStrength}%)\uf1eb",
+      "format-wifi": "{essid} ({signalStrength}%) \uf1eb ",
       "format-ethernet": "󰈀 {ifname}",
       "format-linked": "\uf059 No IP ({ifname})",
       "format-disconnected": "\uf071 Disconnected",
@@ -134,7 +137,7 @@
       "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}"
     },
     "clock": {
-      "format": "{:%H:%M} ",
+      "format": "{:%H:%M}  ",
       "format-alt": "{:%A, %b %d} ",
       "tooltip-format": "{:%Y}",
       "calendar": {
@@ -166,11 +169,11 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         }
     },
     "custom/power": {
-        "format": "",
+        "format": " ",
         "tooltip": false,
         "on-click": "wlogout -C ~/.config/mango/wlogout/style.css -l  ~/.config/mango/wlogout/layout  -b 6 --protocol layer-shell",
   		  "menu": "on-click-right",
@@ -240,5 +243,20 @@
         "format": "{icon}",
         "format-icons": ["", "", "", "", ""],
         "max-length": 25
-    }
+    },
+ 
+"custom/ram": {
+    "interval": 2,
+    "exec": "free -h | grep Mem | awk '{gsub(/Gi/, \"GB\"); print \"{\\\"text\\\": \\\" \"$3\"/\"$2\"\\\"}\"}'",
+    "tooltip": "Memory Usage",
+    "on-click": "gnome-system-monitor",
+    "format-icons": {
+        "low": "",
+        "medium": "",
+        "high": ""
+    },
+    "return-type": "json",
+    "exec-if": "which free"
+}
+
 }
