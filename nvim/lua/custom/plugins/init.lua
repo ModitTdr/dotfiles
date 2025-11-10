@@ -3,6 +3,9 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.keymap.set('n', '<C-z>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-z>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-z>', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'i' }, '<C-z>', function()
   vim.cmd 'undo'
 end, { noremap = true })

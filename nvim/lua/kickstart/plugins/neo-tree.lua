@@ -22,4 +22,7 @@ return {
       },
     },
   },
+  filters = {
+    dotfiles = false, -- Show hidden files
+  },
 }

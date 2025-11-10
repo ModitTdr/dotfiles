@@ -12,11 +12,12 @@ window#waybar {
   padding: 0px;
   margin: 6px 4px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.6); 
+  background: rgba(0, 0, 0, 0.05); 
 }
 
 .modules-center {
   margin-left: 0;
+  background:transparent;
 }
 
 .modules-right {
@@ -49,45 +50,32 @@ tooltip {
 #custom-pacman, #custom-notification {
     padding: 0px 5px;
     transition: all .3s ease;
-    color: #B0C4DE;
 }
 
 /* Workspaces Buttons */
 #workspaces {
   padding: 0px 5px;
   margin:4px 0px;
+  background: transparent;
 }
 
 #workspaces button {
   all: unset;
   margin: 0px 2px;
   padding: 0px 8px;
-  color: rgba(255, 255, 255, 0.6); /* Light color */
-  border-radius: 4px;
-  border-width: 1px;
-  border-color: transparent;
-  border-style: solid;
+  color: rgba(0, 0, 0, .06);
   transition: all .2s ease;
 }
 
 #workspaces button:hover {
-  color: #FFFFFF;
+  color: #000;
   border: none;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
-  border-radius: 4px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #50fa7b;
   transition: all .2s ease;
 }
 
 #workspaces button.active {
   color: #21222c;
-  border-radius: 4px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #50fa7b;
-  background-color: #50fa7b;
+  /* background-color: #50fa7b; */
 }
 
 #workspaces button.empty {
